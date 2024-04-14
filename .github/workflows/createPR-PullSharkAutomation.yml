@@ -1,4 +1,4 @@
-name: Pull Shark Automation
+name: Create PR (Pull Shark Automation)
 
 on:
   push:
@@ -32,17 +32,3 @@ jobs:
           commit-message: Update progress
           title: Update progress
           branch: main
-
-      - name: Merge Pull Request
-        if: ${{ steps.create_pr.outputs.pull-request-created == 'true' }}
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.PAT }}
-          script: |
-            const pull_number = context.payload.number;
-            const repository = context.repo;
-            await github.rest.pulls.merge({
-              owner: repository.owner,
-              pull_number: pull_number,
-              repo: repository.repo
-            });
