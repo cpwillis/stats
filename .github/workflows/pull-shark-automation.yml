@@ -31,7 +31,7 @@ jobs:
           token: ${{ secrets.PAT }}
           commit-message: Update progress
           title: Update progress
-          branch: update-branch
+          branch: main
 
       - name: Merge Pull Request
         if: ${{ steps.create_pr.outputs.pull-request-created == 'true' }}
