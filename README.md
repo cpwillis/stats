@@ -23,11 +23,7 @@ The tree object referenced in a commit contains the directory listing for that c
 
 ## Contributions
 
-### Demonstration
-
-[contributions.py](.contributions.py) is a Python script designed to create a simulated Git repository history. It generates pseudo-random commit messages and commit dates, allowing users to mimic a busy commit activity. It serves as a basic demonstration of how one can modify commit histories for various purposes. Similar alternatives include [artiebits/fake-git-history](https://github.com/artiebits/fake-git-history) and [theveloper-pl/Fake-Git-History](https://github.com/theveloper-pl/Fake-Git-History).
-
-**Usage**
+[contributions.py](contributions.py) is a Python script designed to create a simulated Git repository history. It generates pseudo-random commit messages and commit dates, allowing users to mimic a busy commit activity. It serves as a basic demonstration of how one can modify commit histories for various purposes. Similar alternatives include [artiebits/fake-git-history](https://github.com/artiebits/fake-git-history) and [theveloper-pl/Fake-Git-History](https://github.com/theveloper-pl/Fake-Git-History).
 
 ```sh
 usage: contributions.py [-h] [-c COMMITS] [-w] [-s START] [-e END] [--push]
@@ -47,22 +43,12 @@ options:
 
 ## Achievements
 
-[All Achievements](https://github.com/drknzz/GitHub-Achievements)
-Uncover insights into GitHub achievements and their potential manipulation:
+[pull-shark-automation.py](pull-shark-automation.py) is a Python script designed to automate the creation of pull requests leveraging GitHub worklows. By generating a new pr every minute, it updates the count stored in the `pull-shark-automation.txt` file. An alternative can be found from [Anurag-gg/pull-shark-automation](https://github.com/Anurag-gg/pull-shark-automation), although entirely non-functional. A comprehensive overview of GitHub achievements, including insights into their nature and potential manipulation is available here; [all achievements](https://github.com/drknzz/GitHub-Achievements).
 
-### Demonstration
-
-Forked from [Anurag-gg/pull-shark-automation](https://github.com/Anurag-gg/pull-shark-automation)
-
-**Usage**
-
-1. Save Script: Save the `pull-shark-automation.py` script to your repository.
-2. Save Workflow: Save the `pull-shark-automation.yml` file in the `.github/workflows` directory of your repository.
-3. Setup GitHub Secrets: Create a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) named `PAT` in your repository [secrets](https://github.com/Azure/actions-workflow-samples/blob/master/assets/create-secrets-for-GitHub-workflows.md). This token will be used for authentication when creating pull requests.
-4. Enable GitHub Actions: Go to the "Actions" tab of your repository on GitHub and enable workflows.
-5. Run Workflow: The workflow will automatically run every minute, updating the pull request count in the `pull-shark-automation.txt` file and creating a new pull request if necessary.
-6. Monitor Progress: Check the pull request count in the `pull-shark-automation.txt` file and monitor the creation of pull requests in your repository.
-7. Disable Workflow (_Optional_): Once you've achieved the desired number of pull requests or badges, you can disable the workflow in the "Actions" tab.
+1. Save files (ie py/txt and workflow) to your repository.
+2. Setup GitHub Secrets; Create a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) named `PAT` in your repository [secrets](https://github.com/Azure/actions-workflow-samples/blob/master/assets/create-secrets-for-GitHub-workflows.md). This token will be used for authentication when creating pull requests.
+3. Push changes to your repository (or manually trigger the action), to have the workflow automatically run every minute, creating a pr, merging to main, updating the count, and repeating the process.
+4. _Optional_; Disable the workflow and remove the token once the desired number of pull requests or badges have been achieved.
 
 ## Trophies
 
