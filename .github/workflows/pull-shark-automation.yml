@@ -22,9 +22,24 @@ jobs:
         run: python pull-shark-automation.py
 
       - name: Create Pull Request
+        id: create_pr
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PAT }}
           commit-message: Update progress
           title: Update progress
           branch: update-progress
+
+      - name: Merge Pull Request
+        if: ${{ steps.create_pr.outputs.pull-request-created == 'true' }}
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.PAT }}
+          script: |
+            const pull_number = context.payload.number;
+            const repository = context.repo;
+            await github.rest.pulls.merge({
+              owner: repository.owner,
+              pull_number: pull_number,
+              repo: repository.repo
+            });
