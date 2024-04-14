@@ -2,6 +2,7 @@ name: Merge PR (Pull Shark Automation)
 
 on:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   merge:
