@@ -1,4 +1,4 @@
-name: Merge PR (Pull Shark Automation)
+name: 2 Merge PR (Pull Shark Automation)
 
 on:
   pull_request:

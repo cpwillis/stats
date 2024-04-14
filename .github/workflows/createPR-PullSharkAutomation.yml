@@ -1,7 +1,9 @@
-name: Create PR (Pull Shark Automation)
+name: 1 Create PR (Pull Shark Automation)
 
 on:
   push:
+    branches:
+      - main
   workflow_dispatch:
   schedule:
     - cron: "* * * * *" # Run every minute
