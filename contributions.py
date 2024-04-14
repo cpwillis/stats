@@ -43,7 +43,12 @@ class FakeGitHistory:
 
     def single_commit(self, day: int, month: int, year: int):
         current_date = mydate.date(year, month, day)
-        commits_amount = random.randint(0, 3)
+        commits_range = args.commits.split(",")
+        if len(commits_range) == 1:
+            min_commits = max_commits = int(commits_range[0])
+        else:
+            min_commits, max_commits = map(int, commits_range)
+        commits_amount = random.randint(min_commits, max_commits)
         print(f"Currently committing {current_date} with {commits_amount} commits")
         for _ in range(commits_amount):
             self.execute_commit(day, month, year)
@@ -75,7 +80,13 @@ class FakeGitHistory:
                 commit_start_date += mydate.timedelta(days=1)
 
     def git_push(self):
-        print("Changes have been generated. Push manually to apply.")
+        try:
+            origin = self.repo.remote(name="origin")
+            origin.push()
+        except Exception as e:
+            print(f"Error occurred while pushing the code !:\n{e}")
+        else:
+            print("Changes have been pushed!")
 
 
 def parse_args():
@@ -85,7 +96,7 @@ def parse_args():
         "--commits",
         type=str,
         default="0,3",
-        help="Number of commits per day. Specify as 'min,max'. Default is '0,3'. Example: -c 1,5",
+        help="Number of commits per day. Specify as 'min,max' or a single number for both min and max. Default is '0,3'. Example: -c 1,5",
     )
     parser.add_argument(
         "-w",
