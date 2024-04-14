@@ -18,9 +18,6 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Create Temporary Branch
-        run: git checkout -b update-branch
-
       - name: Execute Python script
         run: python pull-shark-automation.py
 
@@ -31,4 +28,3 @@ jobs:
           commit-message: Update progress
           title: Update progress
           branch: update-progress
-          base: main
