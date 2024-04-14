@@ -1,0 +1,57 @@
+name: Pull Shark Automation
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: "* * * * *" # Run every minute
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  update-and-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository content
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Execute Python script
+        run: python pull-shark-automation.py
+
+      - name: Create or Update Pull Request
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.PAT }}
+          commit-message: Update progress
+          title: Update progress
+          branch: update-progress
+          base: main
+
+      - name: Merge Pull Request
+        if: github.event_name == 'pull_request' && github.event.action == 'opened' || github.event.action == 'synchronize'
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.PAT }}
+          script: |
+            const pull_request = context.payload.pull_request;
+            if (!pull_request) {
+              console.log("Pull request information not available. Exiting...");
+              return;
+            }
+            const pull_number = pull_request.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            await github.rest.pulls.merge({
+              owner: owner,
+              repo: repo,
+              pull_number: pull_number,
+              merge_method: "merge"
+            });
