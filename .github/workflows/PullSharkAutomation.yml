@@ -30,9 +30,9 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PAT }}
-          commit-message: Update progress
-          title: Update progress
-          branch: update-progress
+          commit-message: PR Shark Automation
+          title: PR Shark Automation
+          branch: pr-shark-automation
           base: main
 
       - name: Merge Pull Request
