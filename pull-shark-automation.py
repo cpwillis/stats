@@ -1,38 +1,19 @@
 import os
 
 
-def update_status_md():
+def update_pull_shark_automation():
     try:
-        with open("status.md", "r") as f:
-            text = f.readline()
-            num = [int(x) for x in text.split() if x.isdigit()][0]
+        with open("pull-shark-automation.txt", "r") as f:
+            num = int(f.readline().strip())
             num += 1
-
         if num <= 1024:
-            with open("status.md", "w") as f:
-                if num in range(16):
-                    img = "![pull-shark](images/pull-shark-default.png)"
-                elif num in range(128):
-                    img = "![pull-shark](images/pull-shark-bronze.png)"
-                elif num in range(1024):
-                    img = "![pull-shark](images/pull-shark-silver.png)"
-                else:
-                    img = "![pull-shark](images/pull-shark-gold.png)"
-
-                f.write(f"{num} pull requests merged")
-                f.write("<br>")
-                f.write("Currently:")
-                f.write("<br>")
-                f.write(img)
+            with open("pull-shark-automation.txt", "w") as f:
+                f.write(str(num))
     except Exception as e:
         print(f"Error: {e}")
-        with open("status.md", "w") as f:
-            f.write("1 pull request merged")
-            f.write("<br>")
-            f.write("Currently:")
-            f.write("<br>")
-            f.write("![pull-shark](images/pull-shark-default.png)")
+        with open("pull-shark-automation.txt", "w") as f:
+            f.write("1")
 
 
 if __name__ == "__main__":
-    update_status_md()
+    update_pull_shark_automation()
