@@ -54,15 +54,6 @@ Uncover insights into GitHub achievements and their potential manipulation:
 
 Forked from [Anurag-gg/pull-shark-automation](https://github.com/Anurag-gg/pull-shark-automation)
 
-## Achievements
-
-[All Achievements](https://github.com/drknzz/GitHub-Achievements)
-Uncover insights into GitHub achievements and their potential manipulation:
-
-### Demonstration
-
-Forked from [Anurag-gg/pull-shark-automation](https://github.com/Anurag-gg/pull-shark-automation)
-
 ## Trophies
 
 [GitHub Profile Trophy](https://github.com/ryo-ma/github-profile-trophy)
