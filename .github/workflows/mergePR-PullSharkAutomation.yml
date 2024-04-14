@@ -5,13 +5,13 @@ on:
 
 jobs:
   merge:
-    name: "Merge"
-    runs-on: "ubuntu-latest"
+    name: Merge
+    runs-on: ubuntu-latest
     steps:
-      - name: "Merge PR"
-        uses: "actions/github-script@v5"
+      - name: Merge PR Pull Request
+        uses: actions/github-script@v5
         with:
-          github-token: "${{ secrets.PAT }}"
+          github-token: ${{ secrets.PAT }}
           script: |
             const pull_number = context.payload.pull_request.number;
             const owner = context.repo.owner;
