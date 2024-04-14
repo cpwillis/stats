@@ -18,6 +18,9 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Create Temporary Branch
+        run: git checkout -b update-branch
+
       - name: Execute Python script
         run: python pull-shark-automation.py
 
@@ -28,7 +31,7 @@ jobs:
           token: ${{ secrets.PAT }}
           commit-message: Update progress
           title: Update progress
-          branch: update-progress
+          branch: update-branch
 
       - name: Merge Pull Request
         if: ${{ steps.create_pr.outputs.pull-request-created == 'true' }}
