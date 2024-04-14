@@ -13,7 +13,12 @@ jobs:
         with:
           github-token: ${{ secrets.PAT }}
           script: |
-            const pull_number = context.payload.pull_request.number;
+            const pull_request = context.payload.pull_request;
+            if (!pull_request) {
+              console.log("Pull request information not available. Exiting...");
+              return;
+            }
+            const pull_number = pull_request.number;
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             await github.rest.pulls.merge({
