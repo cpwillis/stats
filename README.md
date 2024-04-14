@@ -25,6 +25,8 @@ The tree object referenced in a commit contains the directory listing for that c
 
 [contributions.py](contributions.py) is a Python script designed to create a simulated Git repository history. It generates pseudo-random commit messages and commit dates, allowing users to mimic a busy commit activity. It serves as a basic demonstration of how one can modify commit histories for various purposes. Similar alternatives include [artiebits/fake-git-history](https://github.com/artiebits/fake-git-history) and [theveloper-pl/Fake-Git-History](https://github.com/theveloper-pl/Fake-Git-History).
 
+eg `py contributions.py -c 69,420  -s 01/12/2023 -e 31/12/2023`
+
 ```sh
 usage: contributions.py [-h] [-c COMMITS] [-w] [-s START] [-e END] [--push]
 
