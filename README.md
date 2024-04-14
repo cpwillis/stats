@@ -58,7 +58,7 @@ Forked from [Anurag-gg/pull-shark-automation](https://github.com/Anurag-gg/pull-
 
 1. Save Script: Save the `pull-shark-automation.py` script to your repository.
 2. Save Workflow: Save the `pull-shark-automation.yml` file in the `.github/workflows` directory of your repository.
-3. Setup GitHub Secrets: Create a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) named `PAT` in your repository secrets. This token will be used for authentication when creating pull requests.
+3. Setup GitHub Secrets: Create a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) named `PAT` in your repository [secrets](https://github.com/Azure/actions-workflow-samples/blob/master/assets/create-secrets-for-GitHub-workflows.md). This token will be used for authentication when creating pull requests.
 4. Enable GitHub Actions: Go to the "Actions" tab of your repository on GitHub and enable workflows.
 5. Run Workflow: The workflow will automatically run every minute, updating the pull request count in the `pull-shark-automation.txt` file and creating a new pull request if necessary.
 6. Monitor Progress: Check the pull request count in the `pull-shark-automation.txt` file and monitor the creation of pull requests in your repository.
