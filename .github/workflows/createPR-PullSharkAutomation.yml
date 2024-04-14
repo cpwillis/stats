@@ -24,7 +24,7 @@ jobs:
         run: python pull-shark-automation.py
 
       - name: Create Pull Request
-        if: github.event_name == 'push' && github.event.ref == 'refs/heads/main'
+        # if: github.event_name == 'push' && github.event.ref == 'refs/heads/main'
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PAT }}
