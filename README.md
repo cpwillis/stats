@@ -52,6 +52,8 @@ options:
 3. Push changes to your repository (or manually trigger the action), to have the workflow automatically run every minute, creating a pr, merging to main, updating the count, and repeating the process.
 4. _Optional_; Disable the workflow and remove the token once the desired number of pull requests or badges have been achieved.
 
-## Trophies
+## Misc
 
-[GitHub Profile Trophy](https://github.com/ryo-ma/github-profile-trophy)
+- [Readme Stats](https://github.com/anuraghazra/github-readme-stats)
+- [GitHub Profile Trophy](https://github.com/ryo-ma/github-profile-trophy)
+- Signing Commits; [GPG and Malicious Commit Example](https://github.com/nodejs/node/issues/15457#issuecomment-330502948)
